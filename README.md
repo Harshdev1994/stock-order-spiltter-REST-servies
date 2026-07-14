@@ -9,6 +9,14 @@ REST API for stock order splitter based on a model portfolio.
 - Fixed default stock price of $100, with optional `marketPrice` override per symbol
 - Response time logging in milliseconds
 
+## Dependencies used
+- `express` — creates the REST API server and handles routes and middleware.
+- `morgan` — logs incoming HTTP requests in the console.
+- `dotenv` — loads environment variables from `.env`.
+- `zod` — validates request bodies such as portfolio payloads and order input.
+- `typescript` — compiles the TypeScript source into JavaScript.
+- `jest` + `ts-jest` — run automated tests for the order logic and market scheduling behavior.
+
 ## Project structure
 ```
 src/

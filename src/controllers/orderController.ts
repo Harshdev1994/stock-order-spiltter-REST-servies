@@ -8,8 +8,12 @@ export const createOrderHandler = (req: Request, res: Response) => {
     return res.status(400).json({ error: parseResult.error.flatten() })
   }
 
-  const order = createOrder(parseResult.data)
-  return res.status(201).json(order)
+  const result = createOrder(parseResult.data)
+  if (!result.created) {
+    return res.status(200).json({ message: result.message })
+  }
+
+  return res.status(201).json(result.order)
 }
 
 export const listOrdersHandler = (_req: Request, res: Response) => {

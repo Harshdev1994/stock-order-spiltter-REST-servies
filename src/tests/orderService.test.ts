@@ -9,9 +9,9 @@ describe('order service scheduling', () => {
       requestedAt: '2026-07-11T12:00:00', // Saturday
     }
 
-    const order = createOrder(req as any)
-    const executeAt = new Date(order.items[0].executeAt)
-    // executeAt must be after requestedAt
-    expect(executeAt.getTime()).toBeGreaterThan(new Date(req.requestedAt).getTime())
+    const result = createOrder(req as any)
+    expect(result.created).toBe(false)
+    expect(result.message).toContain('weekend')
+    expect(result.order).toBeUndefined()
   })
 })

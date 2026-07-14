@@ -14,5 +14,12 @@ export type OrderRecord = {
   decimalPlaces: number
   createdAt: string
   fixedPrice: number
+  message: string
   items: OrderItem[]
+}
+
+export type OrderCreateResult = {
+  created: boolean
+  message?: string
+  order?: OrderRecord
 }
